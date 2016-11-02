@@ -1,7 +1,7 @@
 
 var input = process.argv.slice(2).toString().toLowerCase();
 
-function countLetters (input){
+function displayIndices (input){
 
   var noSpaces = input.split(",").join("");
   var object = {};
@@ -9,10 +9,10 @@ function countLetters (input){
   for (var i = 0 ; i < noSpaces.length; i++){
 
     if (object.hasOwnProperty(noSpaces[i])) {
-      object[noSpaces[i]] += 1;
+      object[noSpaces[i]].push(i);
     }
     else {
-      object[noSpaces[i]] = 1;
+      object[noSpaces[i]] = [i];
     }
   }
 
@@ -20,7 +20,7 @@ function countLetters (input){
 
 }
 
-console.log(countLetters(input));
+console.log(displayIndices(input));
 
 
 
